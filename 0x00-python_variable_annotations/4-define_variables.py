@@ -1,4 +1,4 @@
-#!/usr/env python3
+#!/usr/bin/env python3
 '''Task 4's module.
 '''
 a: int = 1
