@@ -16,7 +16,7 @@ def create_database(connection):
     cursor.execute('CREATE DATABASE IF NOT EXISTS ALX_prodev')
     cursor.close()
 
-def connect_to_prodev_db():
+def connect_to_prodev():
     db_config['database'] = 'ALX_prodev'
     return mysql.connector.connect(**db_config)
 

@@ -8,7 +8,7 @@ if connection:
     connection.close()
     print(f"connection successful")
 
-    connection = seed.connect_to_prodev()
+    connection = seed.connect_to_prodev_db()
 
     if connection:
         seed.create_table(connection)
