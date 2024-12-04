@@ -12,7 +12,7 @@ def stream_user_age():
     try:
         cursor.execute('SELECT age FROM user_data')
         for row in cursor:
-            yield row['age']
+            yield row.age
     finally:
         cursor.close()
         conn.close()
