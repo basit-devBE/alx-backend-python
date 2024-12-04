@@ -16,10 +16,10 @@ def stream_user_age():
         count = 0
 
         for row in cursor:
+            yield age  # Stream each age as a generator
             age = row['age']
             total_age += age
             count += 1
-            yield age  # Stream each age as a generator
         
         # After streaming, calculate and print the average
         average_age = total_age / count if count > 0 else 0
