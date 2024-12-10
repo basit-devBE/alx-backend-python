@@ -24,3 +24,7 @@ class ExecuteQuery:
         if exc_type is not None:
             return False
         return True
+    
+with ExecuteQuery('alxProDev', 'root', 'bece2018', 'SELECT * FROM users WHERE age > 25') as cursor:
+    for user in cursor.fetchall():
+        print(user)
