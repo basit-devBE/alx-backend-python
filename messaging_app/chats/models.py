@@ -51,6 +51,7 @@ class Message(models.Model):
     message_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     sender_id = models.ForeignKey(to_field='user_id', to=CustomUser, on_delete=models.CASCADE)
     message_body = models.TextField(null=False) 
+    sent_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         indexes = [
