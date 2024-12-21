@@ -1,0 +1,1 @@
+In this Directory,we are going to build a simple messaging application with Djnago and the Django Rest Framework
