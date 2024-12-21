@@ -1,1 +1,1 @@
-In this Directory,we are going to build a simple messaging application with Djnago and the Django Rest Framework
+This directory is a simple messaging app that has been built with the django rest_framework.The app allows you to send messages to each other
