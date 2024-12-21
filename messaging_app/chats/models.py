@@ -6,7 +6,7 @@ class CustomUser(AbstractUser):
     # Custom user fields
     user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-
+    password_hash = models.CharField(max_length=128, blank=False, null=False)
     # Role choices
     GUEST = 'guest'
     HOST = 'host'
