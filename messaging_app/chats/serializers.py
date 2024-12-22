@@ -21,12 +21,33 @@ class MessageSerializer(serializers.ModelSerializer):
         def get_formatted_sent_at(self, obj):
             return obj.sent_at.strftime('%b %d %Y %I:%M %p')
         
-class ConversationSerializer(serializers.ModelSerializer):
+
+class ConversationCreateSerializer(serializers.ModelSerializer):
     participants = serializers.PrimaryKeyRelatedField(
-        queryset=CustomUser.objects.all(),
-        many=True
-    )
-    initial_messages = MessageSerializer(write_only=True, required=False)
+        queryset=CustomUser.objects.all(), many=True)
+    initial_message = serializers.CharField(write_only=True, required=False)
+
     class Meta:
         model = Conversation
-        fields = ['participants', 'conversation_id', 'created_at', 'initial_messages']
+        fields = ['participants', 'initial_message']
+
+    def create(self, validated_data):
+        participants = validated_data.pop('participants')
+        initial_message = validated_data.pop('initial_message', None)
+        conversation = Conversation.objects.create()
+        conversation.participants.set(participants)
+
+        if initial_message:
+            Message.objects.create(
+                conversation=conversation,
+                sender=self.context['request'].user,
+                message_body=initial_message
+            )
+
+        return conversation
+
+    def validate_participants(self, participants):
+        if len(participants) < 2:
+            raise serializers.ValidationError(
+                "A conversation must have at least two participants.")
+        return participants
