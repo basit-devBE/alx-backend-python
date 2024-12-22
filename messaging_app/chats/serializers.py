@@ -22,7 +22,7 @@ class MessageSerializer(serializers.ModelSerializer):
             return obj.sent_at.strftime('%b %d %Y %I:%M %p')
         
 
-class ConversationCreateSerializer(serializers.ModelSerializer):
+class ConversationSerializer(serializers.ModelSerializer):
     participants = serializers.PrimaryKeyRelatedField(
         queryset=CustomUser.objects.all(), many=True)
     initial_message = serializers.CharField(write_only=True, required=False)
