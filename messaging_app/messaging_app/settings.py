@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'chats',
+    'django_filters',
+    'rest_framework_simplejwt'
 ]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
