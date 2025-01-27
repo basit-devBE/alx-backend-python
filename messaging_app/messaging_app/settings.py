@@ -52,6 +52,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',  # For session-based auth
         'rest_framework.authentication.BasicAuthentication',    # For basic username/password auth (optional)
     ],
+    'DEFAULT PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 }
 
 MIDDLEWARE = [

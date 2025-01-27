@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "filterset",
+        "runserver",
         "simplejwt",
         "viewsets"
     ]
